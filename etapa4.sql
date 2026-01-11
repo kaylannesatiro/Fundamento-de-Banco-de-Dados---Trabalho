@@ -48,8 +48,8 @@ ORDER BY vitimas_nao_brancas DESC;
 ----Criação de Usuário: AdministradorBD
 CREATE USER admin_procuradoria WITH PASSWORD 'admin1234';
 
-----Concessão de Permissões ao Usuário AdministradorBD
-GRANT CONNECT ON DATABASE pem_ocara TO admin_procuradoria;
+----´Controle de Acessos: AdministradorBD
+GRANT CONNECT ON DATABASE "pem-ocara" TO admin_procuradoria;
 GRANT USAGE ON SCHEMA public TO admin_procuradoria;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin_procuradoria;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO admin_procuradoria;
@@ -57,11 +57,9 @@ GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO admin_procuradoria;
 ----Criação de Usuário: FuncionarioBD
 CREATE USER funcionario_procuradoria WITH PASSWORD 'funcionario1234';
 
-----Concessão de Permissões ao Usuário FuncionarioBD
-GRANT CONNECT ON DATABASE pem_ocara TO funcionario_procuradoria;
+----´Controle de Acessos: FuncionarioBD
+GRANT CONNECT ON DATABASE "pem-ocara" TO funcionario_procuradoria;
 GRANT USAGE ON SCHEMA public TO funcionario_procuradoria;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO funcionario_procuradoria;
-
-----Revogação de Permissões Desnecessárias do Usuário FuncionarioBD
-REVOKE SELECT ON endereco FROM funcionario_procuradoria;
+REVOKE SELECT ON funcionario FROM funcionario_procuradoria;
 
